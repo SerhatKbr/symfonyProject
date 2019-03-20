@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+{% block title %}BASVURU{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+{% block content %}
+
+       {{ include('messages.html.twig')}}
+
+             <div align="center">
+                <h3> Bildirimler</h3>
+             </div>
+
+                  <table class="table">
+                        <thead>
+                            <hr>
+                               <tr>
+                                   <th>Name<hr></th>
+                                   <th>E-Mail<hr></th>
+                                   <th>Konu<hr></th>
+                                   <th>Admin Mesajı<hr></th>
+                                   <th>Onay<hr></th>
+                               </tr>
+                        </thead>
+                            <hr>
+
+                        <tbody>
+
+                            {% for a in data2 %}
+                                 {% if a.com!=NULL and a.comment!=NULL and app.user.name == a.name %}
+                                     <tr>
+                                         <td>{{ a.name }}</h3><hr></td>
+                                         <td>{{ a.email }}</h3><hr></td>
+                                         <td>{{ a.subject }}</h3><hr></td>
+                                         <td>{{ a.comment}}</h3><hr></td>
+                                         <td>{{ a.com}}</h3><hr></td>
+                                     </tr>
+
+                                 {% elseif a.com==NULL and a.comment==NULL and app.user.name == a.name   %}
+
+                                     <tr>
+                                        <td>{{ a.name }} <hr></td>
+                                        <td>{{ a.email }}<hr></td>
+                                        <td>{{ a.subject }}<hr></td>
+                                        <td>Bekleniyor...<hr></td>
+                                        <td>Bekleniyor...<hr></td>
+                                     </tr>
+
+                                 {% elseif a.com==NULL and a.comment!=NULL and app.user.name == a.name %}
+
+                                     <tr>
+                                         <td>{{ a.name }} <hr></td>
+                                         <td>{{ a.email }}<hr></td>
+                                         <td>{{ a.subject }}<hr></td>
+                                         <td>{{ a.comment }}<hr></td>
+                                         <td>-------------<hr></td>
+                                     </tr>
+
+                                 {% elseif a.name==NULL %}
+                                      <td><h3>Bildirim Yok...</h3></td>
+                                 {% endif %}
+                            {% endfor %}
+                        </tbody>
+                  </table>
+                         <br><br><br>
+
+
+                      <form action="#"  class="form-actions" name="contact_message" method="post">
+
+                             <fieldset>
+
+                                  <div class="form-group">
+                                    <label class="control-label ">İsim Soyisim</label>
+                                    <input type="text" value="{{ app.user.name }}" name="contact_message[name]" size="60" class="form-control" >
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label class="control-label ">Email</label>
+                                    <input type="email" value="{{ app.user.email }}" name="contact_message[email]"  size="60" class="form-control" >
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label class="control-label ">Konu</label>
+                                      <input type="text" name="contact_message[subject]" size="60" class="form-control" >
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label class="control-label "></label>
+                                      <textarea cols="60" rows="10" name="contact_message[message]" > </textarea>
+                                  </div><br>
+
+                                  <input type="hidden" name="token" value="{{ csrf_token('form-message') }}"/>
+
+                                  <input type="submit" value="GÖNDER" class="btn btn-primary btn-lg "/>
+                             </fieldset>
+                      </form>
+
+       {{ include('messages.html.twig') }}
+
+
+{% endblock %}
+

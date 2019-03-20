@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}HAKKIMIZDA{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+{% block content %}
+
+
+    {{ include('messages.html.twig')}}
+
+    <form action=""  class="form-actions" name="contact_message" method="post">
+
+
+        <fieldset>
+
+            <div class="form-group" >
+                <input type="text" name="user[name]" VALUE="{{ app.user.name }}"  placeholder="İsim Soyisim" size="101" class="form-control" >
+            </div>
+
+            <div class="form-group" >
+                <input type="email" name="user[email]" VALUE="{{ app.user.email }}"   placeholder="Email" size="102" class="form-control" >
+            </div><br>
+
+            <div class="form-group" >
+                <input type="password" name="user[password]" VALUE="{{ app.user.password }}"   placeholder="Konu" size="101" class="form-control" >
+            </div>
+
+            <div class="form-group" >
+                <input type="text" name="user[status]" VALUE="{{ app.user.status }}"   placeholder="Konu" size="101" class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-4">
+                    <div class="sportformError parentFormpopup-validation formError"  >
+                        <select name="user[roles]"  id="sport" class="validate[required] form-control"  >
+                            {% for item in user.roles %}
+
+                                <option selected >{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <input type="hidden" name="token" value="{{ csrf_token('form-message') }}"/>
+               <div align="center">
+                   <a href="{{ path('bilgilerim')}}" class="btn btn-primary btn-grand" >Geri Don</a>
+                   <input  type="submit"  value="Güncelle" class="btn btn-primary btn-grand "/>
+               </div>
+
+        </fieldset>
+
+    </form>
+{% endblock %}
+

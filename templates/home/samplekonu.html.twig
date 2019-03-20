@@ -1,0 +1,234 @@
+{% extends 'base.html.twig' %}
+{% block sidebar %}  {{ include('home/customsidebar.html.twig') }} {% endblock %}
+{% block title %}HAKKIMIZDA{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+
+{% block content %}
+
+     <section id="content_area">
+
+              <div class="clearfix wrapper main_content_area">
+                  <div class="clearfix main_content floatleft">
+                      <div class="clearfix content">
+                          <div class="single_work_page clearfix">
+
+                               <div class="single_work_page_content">
+
+                                    {% for a in data2 %}
+
+                                        {% if  a.bno == "OTOMOBİL" %}
+
+                                               <div class="work_meta clearfix">
+                                                  <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                               </div>
+
+                                                     <div class="newsletter"> </div>
+                                                        <div align="center" >
+                                                          <b>{{ a.konu|raw }}</b>
+                                                        </div>
+                                                <div class="newsletter"> </div>
+                                                     {{  a.icerik|raw }}
+                                                     <br>
+                                                    <a href="{{ path('galeri',{'id':'15'}) }}" class="btn btn-primary btn-grad" >GALERİYE GİT</a>
+                                                <div class="newsletter"> </div>
+
+
+
+                                        {% elseif a.bno == "PLAYSTATION" %}
+
+                                          <div class="work_meta clearfix">
+                                            <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                          </div>
+
+                                            <div class="newsletter"> </div>
+                                              <div align="center" >
+                                               <b>{{ a.konu|raw }}</b>
+                                              </div>
+                                            <div class="newsletter"> </div>
+                                              {{  a.icerik|raw }}
+                                            <br>
+                                            <a href="{{ path('galeri',{'id':'14'}) }}" class="btn btn-primary btn-grad" >GALERİYE GİT</a>
+                                            <div class="newsletter"> </div>
+
+
+
+                                        {% elseif a.bno == 'UZAY' %}
+
+                                            <div class="work_meta clearfix">
+                                              <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                            </div>
+
+                                               <div class="newsletter"> </div>
+                                                 <div align="center" >
+                                                     <b>{{ a.konu|raw }}</b>
+                                                 </div>
+                                               <div class="newsletter"> </div>
+                                                    {{  a.icerik|raw }}
+                                               <br>
+                                               <a href="{{ path('galeri',{'id':'12'}) }}" class="btn btn-primary btn-grad" >GALERİYE GİT</a>
+
+                                               <div class="newsletter"> </div>
+
+
+
+
+                                        {% elseif a.bno == 'DC' %}
+
+                                            <div class="work_meta clearfix">
+                                             <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                            </div>
+
+                                              <div class="newsletter"> </div>
+                                                <div align="center" >
+                                                  <b>{{ a.konu|raw }}</b>
+                                                </div>
+                                              <div class="newsletter"> </div>
+                                                  {{  a.icerik|raw }}
+                                              <br>
+                                              <div class="newsletter"> </div>
+
+
+
+
+                                        {% elseif a.bno == 'XBOX' %}
+
+                                             <div class="work_meta clearfix">
+                                                 <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                             </div>
+
+                                              <div class="newsletter"> </div>
+                                                <div align="center" >
+                                                   <b>{{ a.konu|raw }}</b> </div>
+                                              <div class="newsletter"> </div>
+                                                  {{  a.icerik|raw }}
+                                              <br>
+                                              <div class="newsletter"> </div>
+
+
+
+
+                                        {% elseif a.bno == 'MARVEL' %}
+
+                                            <div class="work_meta clearfix">
+                                               <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                            </div>
+
+                                                <div class="newsletter"> </div>
+                                                  <div align="center" >
+                                                    <b>{{ a.konu|raw }}</b> </div>
+                                                <div class="newsletter"> </div>
+                                                    {{  a.icerik|raw }}
+                                                 <br>
+                                                <div class="newsletter"> </div>
+
+
+
+                                        {% elseif a.bno == 'DİZİ-ÇİZGİROMAN' %}
+
+                                              <div class="work_meta clearfix">
+                                                  <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                              </div>
+
+                                                  <div class="newsletter"> </div>
+                                                    <div align="center" >
+                                                       <b>{{ a.konu|raw }}</b> </div>
+                                                  <div class="newsletter"> </div>
+                                                       {{  a.icerik|raw }}
+                                                  <br>
+                                                  <a href="{{ path('galeri',{'id':'30'}) }}" class="btn btn-primary btn-grad" >GALERİYE GİT</a>
+                                                  <div class="newsletter"> </div>
+
+
+
+                                        {% elseif a.bno == 'DONANIM' %}
+
+                                            <div class="work_meta clearfix">
+                                                <p class="floatleft">Completed : <span> 20 January 2014</span> Client Name: <span>{{ a.name }}</span></p>
+                                            </div>
+
+                                            <div class="newsletter"> </div>
+                                            <div align="center" >
+                                                <b>{{ a.konu|raw }}</b> </div>
+                                            <div class="newsletter"> </div>
+                                            {{  a.icerik|raw }}
+                                            <br>
+                                            <a href="{{ path('galeri',{'id':'54'}) }}" class="btn btn-primary btn-grad" >GALERİYE GİT</a>
+                                            <div class="newsletter"> </div>
+
+
+                                        {% endif %}
+                                    {% endfor %}
+
+
+                                      <div class="single_work_page_content">
+                                          <div align="center">
+                                             <h1>YORUMLAR</h1>
+                                      </div>
+
+                                          <div class="newsletter">
+                                              <div class="more_post_container">
+
+                                                   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                       {% for c in data %}
+                                                           {% if  c.msjapproved == 'Onaylandı' %}
+                                                               {% if c.yorum != NULL %}
+                                                                   {% if app.user.name == c.name %}
+                                                                   <a class="floatright"   href="{{  path('yorumedit',{'id': c.id})}}" >Düzenle  </a>
+                                                                   {% else %}
+                                                                   {% endif %}
+                                                                    <h2> To :  {{ c.name|raw }}</h2>
+
+                                                                   <div class="more_post">
+                                                                       <h3>{{  c.yorum|raw }}</h3>
+                                                                       <div class="newsletter"> </div>
+                                                                   </div>
+                                                               {% endif %}
+                                                           {% endif %}
+                                                       {% endfor %}
+
+                                                       <div align="right">
+                                                         <a href="{{ path('yorumekle') }}" class="btn btn-primary btn-grad" >Yaz</a>
+                                                       </div>
+                                                   {% else %}
+                                                       <div align="center">
+                                                           <a href="{{ path('app_login') }}" class="btn btn-primary btn-grad" >Giriş Yap</a>
+                                                       </div>
+                                                   {% endif %}
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                   <div align="right">
+                                     <a href="{{ path('konuekle') }}" class="btn btn-primary btn-grad" >Post Ekle</a>
+                                   </div><br/>
+
+                               </div>
+                          </div>
+
+                               <div class="more_works">
+                                  <h2>More Works you may like <i class="fa fa-thumbs-o-up"></i></h2>
+                                 <div class="more_works_container">
+                                    <div class="single_more_works floatleft">
+                                       <img src="http://dummyimage.com/220x150/000/fff&text=Thumbnail" alt=""/>
+                                       <a href=""><h2>Magazine Wp Template</h2></a>
+                                    </div>
+
+                                     <div class="single_more_works floatleft">
+                                         <img src="http://dummyimage.com/220x150/000/fff&text=Thumbnail" alt=""/>
+                                         <a href=""><h2>Magazine Wp Template</h2></a>
+                                     </div>
+
+                                       <div class="single_more_works floatleft">
+                                         <img src="http://dummyimage.com/220x150/000/fff&text=Thumbnail" alt=""/>
+                                         <a href=""><h2>Magazine Wp Template</h2></a>
+                                       </div>
+                                 </div>
+                               </div>
+                      </div>
+                  </div>
+              </div>
+     </section>
+
+{% endblock %}

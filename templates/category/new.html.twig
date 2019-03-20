@@ -1,0 +1,22 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Kategoriler{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-10">
+        <div class="panel panel-default">
+            <div class="panel-heading" align="center">
+               KATEGORİ EKLE <br>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+
+                    {{ include('category/_form.html.twig') }}
+
+                    <a href="{{ path('category_index') }}" class="btn btn-primary">Listeye Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

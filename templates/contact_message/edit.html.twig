@@ -1,0 +1,14 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit ContactMessage{% endblock %}
+
+{% block body %}
+    <h1>Edit ContactMessage</h1>
+
+    {{ include('contact_message/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('contact_message/_delete_form.html.twig') }}
+    <a href="{{ path('contact_message_index') }}"  class="btn btn-danger"  >Listeye Dön</a>
+
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}ContactMessage{% endblock %}
+
+{% block body %}
+    <h1>Mesaj Detayları</h1>
+    <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_message.id }}</td>
+               </tr>
+               <tr>
+                <th>Name</th>
+                <td>{{ contact_message.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contact_message.email }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ contact_message.subject }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ contact_message.message }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ contact_message.comment }}</td>
+            </tr>
+            <tr>
+                <th>Onay Durumu</th>
+                <td>{{ contact_message.com }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ contact_message.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+ <form action="{{ path('contact_messages_update',{'id':contact_message.id}) }}" method="post">
+     <div align="center">
+     <textarea name="comment" cols="50" rows="3">{{ contact_message.comment }}  </textarea>
+
+         <br>
+
+
+         <input type="submit" value="Guncelle">
+     </div>
+ </form>
+
+
+
+
+
+{% endblock %}

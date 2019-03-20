@@ -1,0 +1,37 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Ana Sayfa</li>
+        </ol>
+
+        <!-- Page Content -->
+        <div align="center">
+        <h1>Hoşgeldiniz {{ app.user.name  }}</h1>
+        <hr>
+        <p>Admin Paneline Hoşgeldiniz
+
+            <hr>
+        İşlem Paneline soldan ulaşabilirsiniz</p>
+        <hr>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+
+
+
+
+
+{% endblock %}
+
+
+
+

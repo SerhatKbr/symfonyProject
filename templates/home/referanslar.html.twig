@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}HAKKIMIZDA{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+{% block sidebar %}{{include('home/customsidebar.html.twig') }}{% endblock %}
+
+
+
+{% block content %}
+
+     <div align="center" >
+          <h1>Referanslarımız</h1>
+     </div>
+
+       <div align="center" >
+         {{ data[0].referances|raw }}
+       </div>
+
+{% endblock %}
+

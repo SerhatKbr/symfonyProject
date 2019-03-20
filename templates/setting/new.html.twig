@@ -1,0 +1,33 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Setting{% endblock %}
+
+
+{% block body %}
+
+
+    {{ include('setting/_form.html.twig') }}
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#detail'))
+            .catch(error => {
+
+                console.error(error);
+
+            })
+
+    </script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#detail2'))
+            .catch(error => {
+
+                console.error(error);
+
+            })
+
+    </script>
+
+{% endblock %}

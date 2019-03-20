@@ -1,0 +1,12 @@
+<div class="clearfix slider">
+    <ul class="pgwSlider">
+        {%  for rs in sliders  %}
+
+            <li><a href="{{ path('skonu',{ 'bno':'PLAYSTATION'  })}}"></a><img src="{{ asset('uploads')  }}/images/{{ rs.image }}" alt="Oyun Dünyası Haberleri" data-description="Tıkla" data-large-src="{{ asset('uploads')  }}/images/{{ rs.image }}"/></li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+

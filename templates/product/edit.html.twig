@@ -1,0 +1,19 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+
+    {{ include('messages.html.twig')}}
+
+    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+
+
+{% endblock %}

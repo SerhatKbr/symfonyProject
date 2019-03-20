@@ -1,0 +1,33 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Image{% endblock %}
+
+{% block body %}
+
+    <div align="center">
+
+    {{ include('image/_form.html.twig') }}
+
+    <a href="{{ path('image_index') }}">back to list</a> <br>
+
+
+
+    {% for image in imagelist %}
+     <img src="{{ asset('uploads')}}/images/{{ image.image }}" height="100" >
+
+        <a href="{{ path('image_delete', {'pid' : image.productid, 'id' : image.id }) }}" onclick="return confirm('Silnecek emin misin?');"  class="btn btn-danger btn-xs"> Sil</a>
+
+
+
+
+
+
+
+    {% endfor %}
+
+
+
+
+</div>
+
+{% endblock %}

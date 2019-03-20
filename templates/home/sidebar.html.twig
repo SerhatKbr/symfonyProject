@@ -1,0 +1,177 @@
+<style>
+
+    ul#menu-v, #menu-v ul
+    {
+        width:200px; /* Main Menu width */
+        border:1px solid rgba(190,190,190,0.3);
+        list-style:none; margin:0; padding:0;
+        z-index:9;
+    }
+
+    #menu-v li
+    {
+        margin:0;padding:0;
+        position:relative;
+        background-color:#dddddd; /*fallback color*/
+        background-color:rgba(255,255,255,0.5);
+        transition:background 0.5s;
+    }
+    #menu-v li:hover
+    {
+        background-color:rgba(0,0,0,0.9);
+    }
+
+    #menu-v a
+    {
+        font:normal 12px Arial;
+        border-top:1px solid rgba(200,200,200,0.3);
+        display:block;
+        color:#191970;
+        text-decoration:none;
+        line-height:20px;
+        padding-left:11px;
+        position:relative;
+    }
+
+    #menu-v li:first-child a
+    {
+        border-top:0;
+    }
+
+    #menu-v a.arrow::after{
+        content:'';
+        position:absolute;
+        display:inline;
+        top:50%;
+        margin-top:-4px;
+        right: 8px;
+        border-width:4px;
+        border-style:solid;
+        border-color:transparent transparent transparent white;
+        transition:border-color 0.5s;
+    }
+
+    #menu-v li a.arrow:hover::after
+    {
+        border-color:transparent transparent transparent #CCCCCC;
+    }
+
+    /*Sub level menu items
+    ---------------------------------------*/
+    #menu-v li ul
+    {
+        min-width:180px; /* Sub level menu min width */
+        position:absolute;
+        display:none;
+        left:100%;
+        top:50%; transform:translateY(-50%);
+    }
+
+    #menu-v li:hover > ul
+    {
+        display:block;
+    }
+
+
+</style>
+
+
+  <div class="clearfix sidebar_container floatright">
+
+
+         <div class="clearfix newsletter">
+
+                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                     <h1>Hoşgeldin {{ app.user.name  }}</h1>
+
+                          <li><a href="{{ path('home') }}">Ana Sayfa</a></li>
+                          <li><a href="{{ path('bilgilerim') }}">Bilgilerim</a></li>
+                          <li><a href="{{ path('konu') }}">Postlarım</a></li>
+                          <li><a href="{{ path('postDurum') }}">Post Durumu</a></li>
+                          <li><a href="{{ path('basvuru') }}">Talepler</a></li>
+                          <li><a href="{{ path('app_logout') }}">Çıkış yap</a></li>
+
+                 {% else %}
+
+                     <div align="center">
+
+                         <h1> Merhaba Guest</h1>
+
+                          <div class="newsletter"> </div>
+                             <p>Bilgi paylaşımında bulunmak ve tartışmalara katılmak için üye olun:</p>
+                             <a href="{{ path('user_new') }}" class="btn btn-primary btn-grad" >Kayıt Ol</a>
+                             <a href="{{ path('app_login') }}" class="btn btn-primary btn-grad" >Giriş Yap</a>
+                     </div>
+
+                 {% endif %}
+         </div>
+
+
+       <div class="clearfix sidebar">
+
+               <div class="clearfix single_sidebar">
+                      <div class="popular_post">
+
+                           <div class="sidebar_title"><h2>Most Popular</h2></div>
+                               <ul>
+
+                                   <li> <a href="{{ path('skonu',{'bno':'DİZİ-ÇİZGİROMAN'})}}">DİZİ-ÇİZGİROMAN</a></li>
+                                   <li> <a href="{{ path('skonu',{'bno':'UZAY'})}}">UZAY</a></li>
+                                   <li> <a href="{{ path('skonu',{'bno':'OTOMOBİL'})}}">OTOMOBİL</a></li>
+
+                               </ul>
+                      </div>
+               </div>
+
+                       <div class="clearfix single_sidebar category_items">
+
+                             <h2>Categories</h2>
+                                 {% for cat in cats %}
+                                      {{ cat|raw }}
+                                 {% endfor %}
+                       </div>
+
+
+                       <div class="clearfix single_sidebar">
+
+                             <h2>Galeri</h2>
+                                    <ul>
+                                        <li><a href="{{ path('galeri',{'id':'12'}) }}">UZAY<span>(12)</span></a></li>
+                                        <li><a href="{{ path('galeri',{'id':'14'})}}">PLAYSTATION<span>(12)</span></a></li>
+                                        <li><a href="{{ path('galeri',{'id':'15'}) }}">OTOMOBİL<span>(12)</span></a></li>
+                                        <li><a href="{{ path('galeri',{'id':'30'})}}">DİZİ-ÇİZGİROMAN<span>(12)</span></a></li>
+                                        <li><a href="{{ path('galeri',{'id':'54'}) }}">DONANIM<span>(12)</span></a></li>
+                                    </ul>
+                       </div>
+
+                      <div class="clearfix single_sidebar">
+
+                          <h2>Recent Post</h2>
+                          <ul>
+                              <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                              <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                              <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                              <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                          </ul>
+                      </div>
+
+
+                     <div class="clearfix single_sidebar">
+                         <h2>Recent Post</h2>
+                    <ul>
+                         <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                         <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                         <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                         <li><a href="{{ path('home') }}">Deneme Post</a></li>
+                    </ul>
+                    </div>
+
+
+
+
+
+
+       </div>
+  </div>
+

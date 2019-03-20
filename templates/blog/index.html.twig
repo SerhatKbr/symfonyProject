@@ -1,0 +1,64 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Blog index{% endblock %}
+
+{% block body %}
+    <div align="center">
+    <h2>Blog Index</h2>
+    </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Blog
+            </div>
+            <br>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Onay Durumu</th>
+                            <th>Mesaj Onay</th>
+                            <th>BlogID</th>
+                            <th>Konu</th>
+                            <th>Icerik</th>
+                            <th>Yorum</th>
+                            <th>Göster</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for blog in blogs %}
+                            <tr>
+                                <td>{{ blog.id }}</td>
+                                <td>{{ blog.name }}</td>
+                                <td>{{ blog.email }}</td>
+                                <td>{{ blog.approved }}</td>
+                                <td>{{ blog.msjapproved }}</td>
+                                <td>{{ blog.bno }}</td>
+                                <td>{{ blog.konu }}</td>
+                                <td>{{ blog.icerik }}</td>
+                                <td>{{ blog.yorum }}</td>
+                                <td><a href="{{ path('blog_show', {'id': blog.id}) }}" class="btn btn-primary"><i class="icon-pencil icon-white"></i>Göster</a> </td>
+                                <td>   <a href="{{ path('blog_edit', {'id': blog.id}) }}" class="btn btn-primary"><i class="icon-pencil icon-white"></i>Güncelle</a></td>
+                                <td> {{ include('blog/_delete_form.html.twig') }} </td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a href="{{ path('blog_new') }}"class="btn btn-primary"><i class="icon-pencil icon-white"></i>Ekle</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

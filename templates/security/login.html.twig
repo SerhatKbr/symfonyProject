@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}Kayıt Ol{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+        <div class="clearfix newsletter">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <h1>GİRİŞ YAP</h1>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <input type="text" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}">
+                <div class="form-actions no-margin-bottom" style="text-align:center;">
+                    <a href="{{ path('admin') }}" class="btn btn-primary btn-grad" >Admin Paneli(Sadece Adminler İçin)</a>
+                    <input  type="submit" value="GİRİŞ" class="btn btn-primary btn-grad ">
+                    <a href="{{ path('home') }}" class="btn btn-primary btn-grad" >Siteye Gir(Üyeler İçin)</a>
+
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+

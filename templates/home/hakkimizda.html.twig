@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HAKKIMIZDA{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+
+{% block content %}
+
+    <p>{{ data[0].aboutus|raw }}</p>
+
+{% endblock %}

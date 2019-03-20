@@ -1,0 +1,13 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block body %}
+    <h1>Edit Blog</h1>
+
+    {{ include('blog/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('blog_index') }}" class="btn btn-danger">Listeye Dön</a>
+
+    {{ include('blog/_delete_form.html.twig') }}
+{% endblock %}

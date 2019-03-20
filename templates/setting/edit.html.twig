@@ -1,0 +1,50 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Setting{% endblock %}
+
+{% block body %}
+    <h1>Edit Setting</h1>
+
+    {{ include('setting/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#detail'))
+            .catch(error => {
+
+                console.error(error);
+
+            })
+
+    </script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#detail2'))
+            .catch(error => {
+
+                console.error(error);
+
+            })
+
+    </script>
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#detail3'))
+            .catch(error => {
+
+                console.error(error);
+
+            })
+
+    </script>
+
+
+
+    <a href="{{ path('setting_index') }}" class="btn btn-danger">Listeye Geri Dön</a>
+
+
+{% endblock %}

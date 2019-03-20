@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+{% block sidebar %} {{ include('home/sidebar.html.twig') }} {% endblock %}
+
+
+{% block content %}
+
+      <div class="well well-small">
+         <h3>{{ data[0].title }} </h3>
+
+             <div class="row-fluid">
+
+                   <ul class="thumbnails">
+
+                     {% for rs in products %}
+                        <div align="center">
+                            <h3>{{ rs.description }}</h3>
+                        </div>
+                        <li>
+
+                            <div align="center">
+                              <a href="#"><img src="{{ asset('uploads')  }}/images/{{ rs.image }}" alt=""></a>
+                            </div><br>
+
+                               <p>{{ rs.detail|raw }}</p>
+
+                               {% if rs.title == 'OTOMOBİL' %}
+                                 <div align="center">
+                                   <a href="{{ path('skonu', {'bno' : 'OTOMOBİL'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                 </div>
+
+                               {% elseif rs.title == 'DC COMICS' %}
+                                 <div align="center">
+                                   <a href="{{ path('skonu', {'bno' : 'DC'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                 </div>
+
+                               {% elseif rs.title == 'XBOX' %}
+                                <div align="center">
+                                  <a href="{{ path('skonu', {'bno' : 'XBOX'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                </div>
+
+                               {% elseif rs.title == 'PLAYSTATION' %}
+                                <div align="center">
+                                  <a href="{{ path('skonu', {'bno' : 'PLAYSTATION'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                </div>
+
+                               {% elseif rs.title == 'UZAY' %}
+                                 <div align="center">
+                                   <a href="{{ path('skonu', {'bno' : 'UZAY'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                 </div>
+
+                               {% elseif rs.title == 'MARVEL' %}
+                                 <div align="center">
+                                     <a href="{{ path('skonu', {'bno' : 'MARVEL'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                 </div>
+
+                               {% elseif rs.title == 'DİZİ-ÇİZGİROMAN' %}
+                                   <div align="center">
+                                     <a href="{{ path('skonu', {'bno' : 'DİZİ-ÇİZGİROMAN'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                   </div>
+
+                               {% elseif rs.title == 'DONANIM' %}
+                                   <div align="center">
+                                       <a href="{{ path('skonu', {'bno' : 'DONANIM'}) }}" class="btn btn-primary btn-grad" >Habere ulaşmak için tıkla</a>
+                                   </div>
+
+                               {% endif %}
+                        </li>
+
+                               <div class="newsletter"> </div>
+
+                     {% endfor %}
+
+                   </ul>
+             </div>
+      </div>
+
+{% endblock %}

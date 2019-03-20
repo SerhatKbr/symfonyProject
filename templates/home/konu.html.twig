@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+{% block sidebar %}  {{ include('home/customsidebar.html.twig') }}{% endblock %}
+{% block title %}HAKKIMIZDA{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+    <section id="content_area">
+
+          <div class="clearfix wrapper main_content_area">
+              <div class="clearfix main_content floatleft">
+                  <div class="clearfix content">
+                      <div class="single_work_page clearfix">
+                          <div class="single_work_page_content">
+
+                               {% if is_granted('IS_AUTHENTICATED_FULLY')   %}
+                                    {% for a in data %}
+                                        {% if  a.approved == 'Basarili' %}
+                                            {% if app.user.name == a.name and a.icerik != NULL %}
+
+                                                 <div class="work_meta clearfix">
+                                                   <p class="floatleft">Completed : <span> 15.01.2019 </span> Client Name: <span>{{ a.name }}</span></p>
+                                                   <a class="floatright" href="{{  path('blog_editt',{'id': a.id})}}" >Düzenle  </a>
+                                                 </div>
+                                                 <div class="newsletter"> </div>
+
+                                                 <div align="center" >
+                                                       <b>{{ a.konu|raw }}</b> </div>
+                                                 <div class="newsletter"> </div>
+                                                     {{  a.icerik|raw }}
+                                                 <br><br>
+                                            {% endif %}
+                                        {% endif  %}
+                                    {% endfor %}
+
+                               {% endif %}
+
+
+                                      <div align="right">
+                                            <a href="{{ path('konuekle') }}" class="btn btn-primary btn-grad" >Post Ekle</a>
+                                      </div><br/>
+
+
+                                      <div class="single_work_page_content">
+                                          <div align="center">
+                                             <h1>YORUMLAR</h1>
+                                          </div>
+
+                                      <div class="newsletter">
+                                            <div class="more_post_container">
+
+                                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                                                         {% for b in data %}
+
+                                                              {% if  b.msjapproved == 'Onaylandı' %}
+
+                                                                   {% if  b.yorum != NULL %}
+                                                                       {% if app.user.name == b.name  %}
+                                                                       <a class="floatright"   href="{{  path('yorumedit',{'id': b.id})}}" >Düzenle  </a>
+                                                                       {% else %}
+                                                                       {% endif %}
+                                                                       <h2> To :  {{ b.name|raw }}</h2>
+
+                                                                        <div class="more_post">
+                                                                           <h3>{{  b.yorum|raw }}</h3>
+                                                                        </div>
+
+                                                                       <div class="newsletter"> </div>
+                                                                   {% endif %}
+                                                              {% endif %}
+                                                         {% endfor%}
+
+                                                             <div align="right">
+                                                                <a href="{{ path('yorumekle') }}" class="btn btn-primary btn-grad" >Yaz</a>
+                                                             </div>
+
+                                                    {% else %}
+
+                                                         <div align="center">
+                                                            <a href="{{ path('app_login') }}" class="btn btn-primary btn-grad" >Giriş Yap</a>
+                                                         </div>
+                                                    {% endif %}
+                                            </div>
+                                      </div>
+                                      </div>
+                          </div>
+
+                      </div>
+
+                                 <div class="more_works">
+                                    <h2>More Works you may like <i class="fa fa-thumbs-o-up"></i></h2>
+
+                                      <div class="more_works_container">
+                                          <div class="single_more_works floatleft">
+                                             <img src="http://dummyimage.com/220x150/000/fff&text=Thumbnail" alt=""/>
+                                             <a href=""><h2>Magazine Wp Template</h2></a>
+                                          </div>
+
+                                          <div class="single_more_works floatleft">
+                                             <img src="http://dummyimage.com/220x150/000/fff&text=Thumbnail" alt=""/>
+                                             <a href=""><h2>Magazine Wp Template</h2></a>
+                                          </div>
+
+                                          <div class="single_more_works floatleft">
+                                              <img src="http://dummyimage.com/220x150/000/fff&text=Thumbnail" alt=""/>
+                                              <a href=""><h2>Magazine Wp Template</h2></a>
+                                          </div>
+                                      </div>
+                                 </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+    </section>
+
+
+{% endblock %}

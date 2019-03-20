@@ -1,0 +1,73 @@
+
+<form action="#" class="form-actions" id="block-validate" novalidate="novalidate" method="post">
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Name</label>
+        <div class="col-lg-4">
+            <input type="text" name="contact_message[name]"  value="{{ contact_message.name }}"  size="101" class="form-control" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-4">E-mail</label>
+
+        <div class="col-lg-4">
+            <input type="text" name="contact_message[email]"  value="{{ contact_message.email }}"  size="101" class="form-control" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-4">Subject</label>
+
+        <div class="col-lg-4">
+            <input type="text" name="contact_message[subject]"  value="{{ contact_message.subject }}"  size="101" class="form-control" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-4">Message</label>
+
+        <div class="col-lg-4">
+            <input type="text" name="contact_message[message]"  value="{{ contact_message.message }}"  size="101" class="form-control" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-4">Comment</label>
+
+        <div class="col-lg-4">
+            <input type="text" name="contact_message[comment]"  value="{{ contact_message.comment }}"  size="101" class="form-control" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-4">Status</label>
+
+        <div class="col-lg-4">
+            <input type="text" name="contact_message[status]"  value="{{ contact_message.status }}"  size="101" class="form-control" >
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Type</label>
+        <div class="col-lg-4">
+            <div class="sportformError parentFormpopup-validation formError"  >
+                <select name="contact_message[com]"  id="sport" class="validate[required] form-control"  >
+
+                    <option>Onaylandi</option>
+                    <option>Reddedildi</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-actions no-margin-bottom" style="text-align:center;">
+        <input type="submit" value="KAYDET" class="btn btn-primary btn-lg ">
+    </div>
+
+</form>
+
+
+
+
+
+

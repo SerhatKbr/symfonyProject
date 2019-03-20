@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BİLGİLERİM{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+
+{% block content %}
+
+
+       <hr>
+            <blockquote>
+               Name =    {{ app.user.name }}
+            </blockquote>
+       <hr>
+
+            <blockquote>
+                E-Mail = {{ app.user.email }}
+            </blockquote>
+       <hr>
+
+            <blockquote>
+
+                Roles =
+                {% if app.user.status == "False" %}
+                ADMIN
+                {% elseif app.user.status == "True" %}
+                USER
+                {% endif %}
+
+
+            </blockquote>
+       <hr>
+
+            <blockquote>
+                Status =  {{ app.user.status }}
+            </blockquote>
+
+
+    <form action="#" class="form-actions" id="block-validate" novalidate="novalidate" method="post">
+       <div align="center">
+           <a href="{{ path('user_editt',{'id': app.user.id}) }}" class="btn btn-primary btn-grad" >Bilgilerinizi Güncelleyin</a>
+       </div>
+    </form>
+
+
+{% endblock %}

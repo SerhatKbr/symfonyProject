@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}HAKKIMIZDA{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+{% block sidebar %}  {{ include('home/customsidebar.html.twig') }} {% endblock %}
+{% block content %}
+
+
+        <div class="clearfix wrapper main_content_area">
+
+            <div class="clearfix main_content floatleft">
+
+
+                <div class="clearfix content">
+                    <div class="content_title"><h2>GALERİ</h2></div>
+
+
+                                   {% for rs in images %}
+
+
+
+
+                                           <img src="{{ asset('uploads')  }}/images/{{rs.image}}" alt=""/>
+                                           <div class="newsletter"> </div>
+
+
+
+                                   {% endfor %}
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+{% endblock %}
+

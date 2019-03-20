@@ -1,0 +1,81 @@
+
+
+
+
+<form action="#" class="form-actions" id="block-validate" novalidate="novalidate" method="post">
+
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Kategori</label>
+        <div class="col-lg-10">
+            <div class="sportformError parentFormpopup-validation formError"  >
+                <select name="product[category_id]" class="validate[required] form-control" >
+                    {%  if  (catname) %}
+                        <option value="{{ product.categoryid}}">{{ catname[0].title }}</option>
+                    {% endif %}
+                    {%  for cat in catlist %}
+
+                        <option value="{{ cat.id }}">{{ cat.title }} </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Title</label>
+
+        <div class="col-lg-4">
+            <input type="text" id="email2" value="{{ product.title }}" name="product[title]" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Keywords</label>
+        <div class="col-lg-4">
+            <input type="text" id="email2" value="{{ product.keywords }}" name="product[keywords]" class="form-control">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Description</label>
+
+        <div class="col-lg-4">
+            <input type="text" id="password2" value="{{ product.description }}" name="product[description]" class="form-control">
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Aktif Durumu</label>
+        <div class="col-lg-4">
+            <div class="sportformError parentFormpopup-validation formError"  >
+                <select name="product[status]"  id="sport" class="validate[required] form-control"  >
+                    <option>{{ product.status }}</option>
+                    <option selected >True</option>
+                    <option> False</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-lg-4">Detail</label>
+        <div class="col-lg-4">
+
+            <textarea id="editor" name="product[detail]" rows="20" cols="30" > {{ product.detail }} </textarea>
+        </div> </div>
+
+    <br>
+
+    <div class="form-actions no-margin-bottom" style="text-align:center;">
+        <a href="{{ path('product_index') }}" class="btn btn-primary btn-grad" >Geri Dön</a>
+        <input  type="submit" value="Kaydet" class="btn btn-primary btn-grad ">
+    </div>
+</form>
+

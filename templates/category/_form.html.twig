@@ -1,0 +1,66 @@
+<form action="#" class="form-horizontal" id="block-validate" novalidate="novalidate" method="post">
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4">Üst Kategori</label>
+                                    <div class="col-lg-4">
+                                        <select name="category[parentid]" class="form-control">
+                                            {% if category.parentid != 0 %}
+
+                                                <option value="{{ category.parentid}}">{{ catname.title }}</option>
+                                            {% else %}
+                                                <option value="0"> Ana Kategori</option>
+                                            {% endif %}
+                                            <option value="0"> Ana Kategori</option>
+                                            {%  for cat in catlist %}
+                                                <option value="{{ cat.id }}">{{ cat.title }} </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4">Title</label>
+
+                                    <div class="col-lg-4">
+                                        <input type="text" id="email2" value="{{ category.title }}" name="category[title]" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4">Keywords</label>
+                                <div class="col-lg-4">
+                                    <input type="text" id="email2" value="{{ category.keywords }}" name="category[keywords]" class="form-control">
+                                </div>
+                        </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4">Description</label>
+
+                                    <div class="col-lg-4">
+                                        <input type="text" id="password2" value="{{ category.description }}" name="category[description]" class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-4">Aktif Durumu</label>
+                                    <div class="col-lg-4">
+                                        <div class="sportformError parentFormpopup-validation formError"  >
+                                            <select name="category[status]"  id="sport" class="validate[required] form-control"  >
+                                                <option>{{ category.status }}</option>
+                                                <option selected >True</option>
+                                                <option> False</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions no-margin-bottom" style="text-align:center;">
+                                    <input  type="submit" value="Gönder" class="btn btn-primary btn-lg ">
+                                </div>
+
+
+                            </form>
+
+

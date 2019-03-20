@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ data.title }}{% endblock %}
+{% block keywords %}{{ data.keywords }}{% endblock %}
+{% block description %}{{ data.description }}{% endblock %}
+
+
+
+{% block content %}
+
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <hr>
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Konu</th>
+            <th>Onay</th>
+
+        </tr>
+        </thead>
+        <hr>
+        <tbody>
+        {% for a in data %}
+
+            {% if a.konu != NULL  and a.approved == 'Basarili' and a.icerik != NULL and app.user.name == a.name %}
+            <tr>
+
+                <td><hr>{{ a.name }}<hr></td>
+                <td><hr>{{ a.email }}<hr></td>
+                <td><hr>{{ a.konu }}<hr></td>
+                <td><hr>{{ a.approved}}<hr></td>
+
+
+            </tr>
+          {% elseif a.konu != NULL and a.approved != 'Basarili' and a.icerik != NULL  and app.user.name == a.name %}
+              <tr>
+
+                  <td><hr>{{ a.name }}<hr></td>
+                  <td><hr>{{ a.email }}<hr></td>
+                  <td><hr>{{ a.konu }}<hr></td>
+                  <td><hr>Onay Bekleniyor...<hr></td>
+
+
+              </tr>
+             {% endif %}
+        {% endfor %}
+
+
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+{% endblock %}
